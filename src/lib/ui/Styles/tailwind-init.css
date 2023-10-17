@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* colors */
+@layer base {
+  :root {
+    --contessa-50: #fbf6f5;
+    --contessa-100: #f6ecea;
+    --contessa-200: #f0dcd8;
+    --contessa-300: #e4c3bd;
+    --contessa-400: #d3a096;
+    --contessa-500: #ba7264;
+    --contessa-600: #aa6558;
+    --contessa-700: #8e5347;
+    --contessa-800: #77463d;
+    --contessa-900: #643f38;
+    --contessa-950: #351e1a;
+
+    --cod-gray-50: #f6f6f6;
+    --cod-gray-100: #e7e7e7;
+    --cod-gray-200: #d1d1d1;
+    --cod-gray-300: #b0b0b0;
+    --cod-gray-400: #888888;
+    --cod-gray-500: #6d6d6d;
+    --cod-gray-600: #5d5d5d;
+    --cod-gray-700: #4f4f4f;
+    --cod-gray-800: #454545;
+    --cod-gray-900: #3d3d3d;
+    --cod-gray-950: #080808;
+
+    --primary: var(--contessa-500);
+    --secondary: var(--cod-gray-950);
+
+    --text: var(--secondary);
+    --text-on-dark: var(--contessa-50);
+
+    --background: var(--contessa-50);
+  }
+}
+
+
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: 'Poppins', sans-serif;
+}

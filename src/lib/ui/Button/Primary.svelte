@@ -1,0 +1,24 @@
+<script lang="ts">
+  // Imports
+  import type { ComponentProps } from 'svelte'
+  import Base from './Base.svelte'
+  ///- Imports
+
+  interface $$Props extends ComponentProps<Base> {}
+
+  let styles = {
+    background: 'var(--primary)',
+    color: 'var(--contessa-50)',
+    hoverBg: 'var(--contessa-400)',
+    focusBg: 'var(--contessa-600)',
+  }
+</script>
+
+<span
+  class="contents"
+  style="--bg: {styles.background}; --text: {styles.color}; --hover-bg: {styles.hoverBg}; --focus-bg: {styles.focusBg};"
+>
+  <Base {...$$restProps}>
+    <slot />
+  </Base>
+</span>
