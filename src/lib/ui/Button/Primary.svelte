@@ -9,8 +9,8 @@
   let styles = {
     background: 'var(--primary)',
     color: 'var(--contessa-50)',
-    hoverBg: 'var(--contessa-400)',
-    focusBg: 'var(--contessa-600)',
+    hoverBg: 'var(--contessa-800)',
+    focusBg: 'var(--primary)',
   }
 </script>
 

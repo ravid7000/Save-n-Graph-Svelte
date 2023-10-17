@@ -28,11 +28,12 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: var(--height, 2.5rem);
-    padding: var(--py, 0.5rem) var(--px, 1rem);
+    font-size: 0.9rem;
+    height: var(--height, 2.2rem);
+    padding: var(--py, 0.2rem) var(--px, 1.2rem);
     background: var(--bg, transparent);
     color: var(--text);
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     border: 0;
     cursor: pointer;
   }

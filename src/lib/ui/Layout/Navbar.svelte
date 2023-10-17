@@ -6,19 +6,23 @@
 </script>
 
 <header>
-  <nav class="p-4">
-    <div class="container mx-auto">
-      <div class="flex items-center">
-        <div class="logo text-primary">
-          <a href="/">
-            <Logo />
-          </a>
-        </div>
-        <div class="ml-auto flex gap-2">
-          <Button href="/signup">Sign Up</Button>
-          <ButtonPrimary href="/login">Login</ButtonPrimary>
-        </div>
+  <nav class="px-4 py-2">
+    <div class="flex items-center">
+      <div class="logo text-primary">
+        <a href="/">
+          <Logo />
+        </a>
+      </div>
+      <div class="ml-auto">
+        <Button href="/signup">Sign Up</Button>
+        <ButtonPrimary href="/login">Login</ButtonPrimary>
       </div>
     </div>
   </nav>
 </header>
+
+<style>
+  nav {
+    border-bottom: 1px solid var(--cod-gray-100);
+  }
+</style>

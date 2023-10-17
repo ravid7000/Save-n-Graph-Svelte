@@ -29,13 +29,13 @@
     --cod-gray-900: #3d3d3d;
     --cod-gray-950: #080808;
 
-    --primary: var(--contessa-500);
+    --primary: var(--cod-gray-950);
     --secondary: var(--cod-gray-950);
 
     --text: var(--secondary);
     --text-on-dark: var(--contessa-50);
 
-    --background: var(--contessa-50);
+    --background: #fff;
   }
 }
 
