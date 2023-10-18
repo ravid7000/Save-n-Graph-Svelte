@@ -6,10 +6,7 @@ export const actions = {
     const email = formData.get('email')
     const password = formData.get('password')
 
-    console.log('on server email:', email)
-    console.log('on server password:', password)
-
-    // Signup in supabase
+    // SignIn supabase
     const { error } = await supabase.auth.signInWithPassword({
       email: email as string,
       password: password as string,

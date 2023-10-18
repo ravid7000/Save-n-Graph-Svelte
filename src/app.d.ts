@@ -12,6 +12,17 @@ declare global {
     }
     // interface PageData {}
     // interface Platform {}
+
+    type FormErrors<Values> = {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      [K in keyof Values]?: Values[K] extends any[]
+        ? Values[K][number] extends object
+          ? FormErrors<Values[K][number]>[] | string | string[]
+          : string | string[]
+        : Values[K] extends object
+        ? FormErrors<Values[K]>
+        : string
+    }
   }
 }
 
