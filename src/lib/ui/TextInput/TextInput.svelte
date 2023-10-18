@@ -14,8 +14,12 @@
   ///- Props
 </script>
 
-<label class="label" class:w-full={fullWidth} for={$$restProps.name}>
-  <div class="font-bold text-sm mb-2">
+<label
+  class="inline-block label"
+  class:w-full={fullWidth}
+  for={$$restProps.name}
+>
+  <div class="font-bold text-sm mb-1">
     {label}
   </div>
   <Input {...$$restProps} {fullWidth} />

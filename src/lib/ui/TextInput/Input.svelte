@@ -3,7 +3,8 @@
   import type { HTMLAttributes } from 'svelte/elements'
   ///- Imports
 
-  interface $$Props extends HTMLAttributes<HTMLInputElement> {
+  interface $$Props extends Partial<HTMLInputElement> {
+    type?: string
     fullWidth?: boolean
   }
 

@@ -29,11 +29,40 @@
     --cod-gray-900: #3d3d3d;
     --cod-gray-950: #080808;
 
+    --cinnabar-50: #fff3f1;
+    --cinnabar-100: #ffe3e0;
+    --cinnabar-200: #ffcdc7;
+    --cinnabar-300: #ffaa9f;
+    --cinnabar-400: #ff7968;
+    --cinnabar-500: #fa4f39;
+    --cinnabar-600: #e93a24;
+    --cinnabar-700: #c32612;
+    --cinnabar-800: #a12313;
+    --cinnabar-900: #852317;
+    --cinnabar-950: #490d06;
+
+    --atlantis-50: #f2fce9;
+    --atlantis-100: #e2f8cf;
+    --atlantis-200: #c6f2a4;
+    --atlantis-300: #a0e76f;
+    --atlantis-400: #7fd844;
+    --atlantis-500: #5fbd25;
+    --atlantis-600: #479719;
+    --atlantis-700: #387318;
+    --atlantis-800: #2f5c18;
+    --atlantis-900: #2a4e19;
+    --atlantis-950: #122b08;
+
     --primary: var(--cod-gray-950);
     --secondary: var(--cod-gray-950);
 
     --text: var(--secondary);
     --text-on-dark: var(--contessa-50);
+
+    --error: var(--cinnabar-500);
+    --error-background: var(--cinnabar-50);
+    --success: var(--atlantis-500);
+    --success-background: var(--atlantis-50);
 
     --background: #fff;
   }

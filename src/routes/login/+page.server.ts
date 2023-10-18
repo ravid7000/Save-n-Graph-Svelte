@@ -1,0 +1,28 @@
+import { fail, redirect } from '@sveltejs/kit'
+
+export const actions = {
+  default: async ({ request, locals: { supabase } }) => {
+    const formData = await request.formData()
+    const email = formData.get('email')
+    const password = formData.get('password')
+
+    console.log('on server email:', email)
+    console.log('on server password:', password)
+
+    // Signup in supabase
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email as string,
+      password: password as string,
+    })
+
+    if (error) {
+      return fail(400, {
+        message: 'Invalid email or password',
+        email,
+        success: false,
+      })
+    }
+
+    throw redirect(303, '/')
+  },
+}

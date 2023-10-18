@@ -1,23 +1,41 @@
 <script lang="ts">
+  // Imports
   import type { HTMLAttributes } from 'svelte/elements'
+  import Spinner from '../Spinner/Spinner.svelte'
+  ///- Imports
 
   interface $$Props extends HTMLAttributes<HTMLButtonElement> {
-    fullWidth?: boolean
+    type?: string
     href?: HTMLAnchorElement['href']
+    fullWidth?: boolean
+    loading?: boolean
   }
 
   // Props
   export let href: HTMLAnchorElement['href'] = ''
   export let fullWidth = false
+  export let loading = false
   ///- Props
 </script>
 
 {#if href}
-  <a {...$$restProps} {href} class="base" class:w-full={fullWidth}>
+  <a
+    {...$$restProps}
+    {href}
+    class="base"
+    class:loading
+    class:w-full={fullWidth}
+  >
+    {#if loading}
+      <Spinner />
+    {/if}
     <slot />
   </a>
 {:else}
-  <button {...$$restProps} class="base" class:w-full={fullWidth}>
+  <button {...$$restProps} class="base" class:loading class:w-full={fullWidth}>
+    {#if loading}
+      <Spinner />
+    {/if}
     <slot />
   </button>
 {/if}
@@ -44,5 +62,9 @@
 
   .base:focus {
     background: var(--focus-bg, transparent);
+  }
+
+  .base.loading {
+    pointer-events: none;
   }
 </style>
