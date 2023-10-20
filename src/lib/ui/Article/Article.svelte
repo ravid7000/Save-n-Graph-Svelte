@@ -7,7 +7,21 @@
   export let image = ''
   export let name = ''
   export let link = ''
+  export let liked = false
+  export let onLikeClick: () => Promise<void>
   ///- Props
+
+  // LocalState
+  let isSaving = false
+  ///- LocalState
+
+  // Methods
+  async function handleClick() {
+    isSaving = true
+    await onLikeClick()
+    isSaving = false
+  }
+  ///- Methods
 </script>
 
 <article>
@@ -25,7 +39,7 @@
   {/if}
 
   <div class="control">
-    <ButtonLike />
+    <ButtonLike {liked} disabled={isSaving} on:click={handleClick} />
   </div>
 </article>
 

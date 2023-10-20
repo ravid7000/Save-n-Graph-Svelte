@@ -32,8 +32,10 @@ declare global {
       next: string | null
       previous: string | null
       results: {
+        id: string
         name: string
         url: string
+        image: string
       }[]
     }
 

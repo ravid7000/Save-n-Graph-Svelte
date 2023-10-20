@@ -1,6 +1,10 @@
 <script lang="ts">
   // Imports
   import { ButtonLike } from '$lib/ui/Button'
+
+  import { addToFavorites } from '$lib/services/favorites'
+  import { favoritesList } from '$lib/stores/favorites'
+
   import Sprites from './Sprites.svelte'
   import Types from './Types.svelte'
   import Stats from './Stats.svelte'
@@ -9,13 +13,31 @@
   // Props
   export let pokemon: Pokemon.PokemonDetail | undefined | null = undefined
   ///- Props
+
+  // LocalState
+  let isSaving = false
+  ///- LocalState
+
+  // Method
+  async function handleLikeClick() {
+    if (pokemon) {
+      isSaving = true
+      await addToFavorites(pokemon)
+      isSaving = false
+    }
+  }
+  ///- Method
 </script>
 
 {#if pokemon}
   <div class="details">
     <div class="header content">
       <h1>{pokemon.name}</h1>
-      <ButtonLike />
+      <ButtonLike
+        liked={!!$favoritesList[pokemon.id]}
+        disabled={isSaving}
+        on:click={handleLikeClick}
+      />
     </div>
 
     <div class="image content">

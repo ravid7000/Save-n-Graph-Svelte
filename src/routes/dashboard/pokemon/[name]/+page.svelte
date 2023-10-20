@@ -9,7 +9,6 @@
 
   // LocalStates
   let pokemonResponse: ReturnType<typeof fetchPokemonDetails>
-  $: console.log('url', $page.params)
   ///- LocalStates
 
   onMount(() => {

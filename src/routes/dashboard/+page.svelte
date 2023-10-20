@@ -1,11 +1,15 @@
 <script lang="ts">
   // Imports
+  import { onMount } from 'svelte'
+
   import Article from '$lib/ui/Article/Article.svelte'
   import ArrowLeftIcon from '$lib/ui/Icons/ArrowLeft.svelte'
   import ArrowRightIcon from '$lib/ui/Icons/ArrowRight.svelte'
   import { ButtonPrimary } from '$lib/ui/Button'
-  import { onMount } from 'svelte'
+
   import { fetchAllPokemon } from '$lib/services/pokemon'
+  import { addToFavorites } from '$lib/services/favorites'
+  import { favoritesList } from '$lib/stores/favorites'
   ///- Imports
 
   // LocalStates
@@ -32,8 +36,10 @@
       {#each pokemon.pokemons as item}
         <Article
           link="/dashboard/pokemon/{item.name}"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{item.id}.png"
+          image={item.image}
           name={item.name}
+          liked={!!$favoritesList[item.id]}
+          onLikeClick={() => addToFavorites(item)}
         />
       {/each}
       <div class="flex justify-between pt-4 pb-12">

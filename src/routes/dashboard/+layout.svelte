@@ -1,8 +1,17 @@
 <script lang="ts">
   // Imports
   import { page } from '$app/stores'
+  import { fetchFavorites } from '$lib/services/favorites'
+  import { addRemoveFavorites } from '$lib/stores/favorites'
   import Sidebar from '$lib/ui/Sidebar/Sidebar.svelte'
+  import { onMount } from 'svelte'
   ///- Imports
+
+  onMount(() => {
+    fetchFavorites().then((res) => {
+      addRemoveFavorites(res)
+    })
+  })
 </script>
 
 <section class="px-4 pb-4">
