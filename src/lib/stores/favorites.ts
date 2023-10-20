@@ -4,10 +4,6 @@ export const favoritesList = writable<{
   [x in string]: Pokemon.Pokemons['results'][number]
 }>({})
 
-favoritesList.subscribe((list) => {
-  console.log('favorite list', list)
-})
-
 export const addPokemon = (pokemon: Pokemon.Pokemons['results'][number]) => {
   favoritesList.update((list) => {
     list[pokemon.id] = pokemon

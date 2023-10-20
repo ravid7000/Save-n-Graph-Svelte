@@ -2,6 +2,7 @@
 
 ## Project structure
 
+```
 src/
 └── lib/
 ├── constants/
@@ -42,6 +43,7 @@ src/
 ├── signup
 ├── +layout.svelte
 └── +page.svelte
+```
 
 ## Developing
 

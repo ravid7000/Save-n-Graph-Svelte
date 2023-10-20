@@ -14,7 +14,17 @@
 
   // LocalStates
   let pokemonResponse: ReturnType<typeof fetchAllPokemon>
+  let lastUrl: string | null | undefined
   ///- LocalStates
+
+  // Props
+  export const snapshot = {
+    capture: () => lastUrl,
+    restore: (value) => {
+      lastUrl = value
+    },
+  }
+  ///- Props
 
   // Methods
   function getAll(url?: string | null) {
@@ -22,9 +32,7 @@
   }
   ///- Methods
 
-  onMount(() => {
-    getAll()
-  })
+  $: (lastUrl || lastUrl === undefined) && getAll(lastUrl)
 </script>
 
 {#if pokemonResponse}
@@ -45,14 +53,14 @@
       <div class="flex justify-between pt-4 pb-12">
         <ButtonPrimary
           disabled={!pokemon?.previous}
-          on:click={() => getAll(pokemon?.previous)}
+          on:click={() => (lastUrl = pokemon?.previous)}
         >
           <ArrowLeftIcon />
           Previous
         </ButtonPrimary>
         <ButtonPrimary
           disabled={!pokemon?.next}
-          on:click={() => getAll(pokemon?.next)}
+          on:click={() => (lastUrl = pokemon?.next)}
         >
           Next
           <ArrowRightIcon />

@@ -5,7 +5,6 @@ export const fetchFavorites = async () => {
     const response = await fetch('/dashboard/api/favorites').then((res) =>
       res.json()
     )
-    console.log('favorites', response)
     return response
   } catch {
     return []
