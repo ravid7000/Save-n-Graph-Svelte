@@ -2,8 +2,10 @@
   // Imports
   import { onMount } from 'svelte'
   import { invalidate } from '$app/navigation'
+  import '$lib/ui/Styles/tailwind-init.css'
 
-  import Main from '$lib/ui/Layout/Main.svelte'
+  import Navbar from '$lib/ui/Layout/Navbar.svelte'
+  import Footer from '$lib/ui/Layout/Footer.svelte'
   ///- Imports
 
   // Props
@@ -30,6 +32,8 @@
   ///- Lifecycle
 </script>
 
-<Main>
+<Navbar userName={session?.user.email} />
+<main>
   <slot />
-</Main>
+</main>
+<Footer />

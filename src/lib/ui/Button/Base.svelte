@@ -1,11 +1,9 @@
 <script lang="ts">
   // Imports
-  import type { HTMLAttributes } from 'svelte/elements'
   import Spinner from '../Spinner/Spinner.svelte'
   ///- Imports
 
-  interface $$Props extends HTMLAttributes<HTMLButtonElement> {
-    type?: string
+  interface $$Props extends Partial<HTMLButtonElement> {
     href?: HTMLAnchorElement['href']
     fullWidth?: boolean
     loading?: boolean
@@ -25,6 +23,7 @@
     class="base"
     class:loading
     class:w-full={fullWidth}
+    on:click
   >
     {#if loading}
       <Spinner />
@@ -32,7 +31,13 @@
     <slot />
   </a>
 {:else}
-  <button {...$$restProps} class="base" class:loading class:w-full={fullWidth}>
+  <button
+    {...$$restProps}
+    class="base"
+    class:loading
+    class:w-full={fullWidth}
+    on:click
+  >
     {#if loading}
       <Spinner />
     {/if}
@@ -54,6 +59,13 @@
     border-radius: 2rem;
     border: 0;
     cursor: pointer;
+    gap: 0.25rem;
+    user-select: none;
+  }
+
+  .base:disabled {
+    pointer-events: none;
+    opacity: 0.5;
   }
 
   .base:hover {

@@ -18,7 +18,7 @@
   class="contents"
   style="--bg: {styles.background}; --text: {styles.color}; --hover-bg: {styles.hoverBg}; --focus-bg: {styles.focusBg};"
 >
-  <Base {...$$restProps}>
+  <Base {...$$restProps} on:click>
     <slot />
   </Base>
 </span>
