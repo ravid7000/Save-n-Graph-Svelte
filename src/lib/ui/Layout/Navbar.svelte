@@ -2,8 +2,6 @@
   // Imports
   import Logo from './Logo.svelte'
   import { ButtonPrimary, Button } from '../Button'
-
-  import { enhance } from '$app/forms'
   ///- Imports
 
   // Props
@@ -22,7 +20,7 @@
       <div class="ml-auto pl-4 flex items-center">
         {#if userName}
           <p class="text-sm">Logged in as <b>{userName}</b></p>
-          <form method="post" action="/logout" use:enhance>
+          <form method="post" action="/logout">
             <Button type="submit">Logout</Button>
           </form>
         {:else}
