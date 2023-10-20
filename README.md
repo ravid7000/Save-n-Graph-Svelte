@@ -1,26 +1,66 @@
-# create-svelte
+# Pokemon App using Sveltekit
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Project structure
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+src/
+└── lib/
+├── constants/
+│ ├── // Directory for common constants
+│ └── pokemon.ts
+├── services/
+│ ├── // Directory for common services
+│ ├── pokemon.ts
+│ └── favorites.ts
+├── stores/
+│ ├── // Directory for global stores
+│ └── favorites.ts
+├── ui/
+│ ├── // Directory for common components
+│ ├── Alert
+│ ├── Article
+│ ├── Button
+│ ├── Icons
+│ ├── Layout
+│ ├── Sidebar
+│ ├── Spinner
+│ ├── Styles
+│ └── TextInput
+├── utils/
+│ ├── // Directory for common utils
+│ ├── pokemonStats.ts
+│ └── yupParser.ts
+└── routes/
+├── dashboard/
+│ ├── // Protected route with user session
+│ ├── api
+│ ├── favorites
+│ ├── pokemon
+│ ├── +layout.svelte
+│ └── +page.svelte
+├── login
+├── logout
+├── signup
+├── +layout.svelte
+└── +page.svelte
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Installed dependencies with `npm install` (or `pnpm install` or `yarn`):
 
 ```bash
 npm run dev
+```
 
+Create .env file from .env.example or just add these environment variables in order to use supabase database
+
+```
+PUBLIC_SUPABASE_URL=""
+PUBLIC_SUPABASE_ANON_KEY=""
+```
+
+Start a development server
+
+```bash
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
